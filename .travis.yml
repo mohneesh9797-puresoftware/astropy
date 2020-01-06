@@ -279,7 +279,7 @@ before_install:
 
 install:
     - if [[ $USE_CI_HELPERS == True ]]; then
-        git clone git://github.com/mohneesh979-puresoftware/ci-helpers.git;
+        git clone git://github.com/mohneesh9797-puresoftware/ci-helpers.git;
         source ci-helpers/travis/setup_conda.sh;
       fi
     - if [[ $INSTALL_WITH_PIP == True ]]; then
