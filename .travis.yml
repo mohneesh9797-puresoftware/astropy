@@ -176,6 +176,7 @@ matrix:
                MATPLOTLIB_VERSION=2.1
                EVENT_TYPE='push pull_request cron'
         - os: linux
+          arch: arm64
           env: SETUP_CMD='test --coverage --remote-data=astropy --readonly'
                CONDA_DEPENDENCIES=$CONDA_ALL_DEPENDENCIES
                PIP_DEPENDENCIES="scikit-image codecov objgraph jplephem bintrees sortedcontainers $ASDF_PIP_DEP"
@@ -197,6 +198,7 @@ matrix:
           env: MAIN_CMD="flake8 astropy --count $FLAKE8_OPT" SETUP_CMD=''
         - os: linux
           stage: Initial tests
+          arch: arm64
           env: MAIN_CMD="flake8 astropy --count $FLAKE8_OPT" SETUP_CMD=''
                PYTHON_VERSION=3.7
         # Try developer version of Numpy with optional dependencies and also
@@ -211,6 +213,7 @@ matrix:
                MATPLOTLIB_VERSION=dev
         - os: linux
           stage: Final tests
+          arch: arm64
           env: PYTHON_VERSION=3.7 NUMPY_VERSION=dev SETUP_CMD='test --remote-data'
                CONDA_DEPENDENCIES=''
                PIP_DEPENDENCIES=$DEV_PIP_DEP
@@ -246,6 +249,7 @@ matrix:
                EXTRAS_INSTALL="docs"
         - os: linux
           stage: Cron tests
+          arch: arm64
           env: SETUP_CMD='build_docs -b linkcheck' EVENT_TYPE='cron'
                MATPLOTLIB_VERSION="<3.1"
                PIP_DEPENDENCIES="" CONDA_DEPENDENCIES=""
